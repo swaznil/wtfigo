@@ -8,6 +8,9 @@ var pop = document.getElementById('popup');
 function popup(message) {
   pop.style.display = 'block';
   document.getElementById('poptxt').innerText = message;
+
+  pop.style.left = Math.random() * 50 + 10 + '%';
+  pop.style.top = Math.random() * 40 + 5 + '%';
 }
 
 function oops(e) {
@@ -29,11 +32,15 @@ function nah(button) {
   moveCount++;
 
   button.style.position = 'relative';
-  button.style.left = Math.random() * 200 - 100 + 'px';
-  button.style.top = Math.random() * 80 - 40 + 'px';
+  button.style.left = Math.random() * 350 - 150 + 'px';
+  button.style.top = Math.random() * 120 - 60 + 'px';
 
   if (moveCount > 5) {
     button.innerText = 'STOP CHASING ME';
+  }
+
+  if (moveCount > 10) {
+    button.style.background = 'red';
   }
 }
 
@@ -58,6 +65,10 @@ function btnbtn(button) {
 
   if (clicks % 3 === 0) {
     popup('BUTTON HAS STOPPED RESPONDING');
+  }
+
+  if (clicks % 5 === 0) {
+    more_crap();
   }
 }
 
@@ -84,12 +95,27 @@ function more_crap() {
     'SOMETHING WENT WRONG',
     '???',
     'WARNING WARNING',
-    'THIS IS NOT A VIRUS'
+    'THIS IS NOT A VIRUS',
+    'X X X X',
+    'HELLO????'
   ];
 
   var p = document.createElement('p');
-  p.className = 'warning';
+  p.className = 'warning random';
+
   p.innerText = messages[Math.floor(Math.random() * messages.length)];
+
+  p.style.left = Math.random() * 80 + '%';
+  p.style.top = window.scrollY + Math.random() * 600 + 'px';
+  p.style.fontSize = 15 + Math.random() * 45 + 'px';
+  p.style.transform = 'rotate(' + (Math.random() * 40 - 20) + 'deg)';
+
+  p.style.color = [
+    'red',
+    'lime',
+    'yellow',
+    'white'
+  ][errors % 4];
 
   document.body.appendChild(p);
 
