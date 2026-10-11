@@ -10,13 +10,24 @@ a {
   color: lime;
 }
 
+a:visited {
+  color: red;
+}
+
 button {
   cursor: pointer;
   font-family: Comic Sans MS;
+  box-shadow: 3px 3px #300000;
+}
+
+button:active {
+  background: red;
+  color: white;
 }
 
 #bigtable {
   background: #171717;
+  border-spacing: 13px;
 }
 
 #shout {
@@ -40,9 +51,27 @@ button {
   top: 20%;
   left: 20%;
   width: 350px;
+  max-width: 80%;
   padding: 10px;
   background: #ddd;
   color: black;
   border: 6px ridge red;
   z-index: 50;
+  font-family: Comic Sans MS;
+  box-shadow: 10px 12px #400000;
+}
+
+#popup h1 {
+  font-size: 28px;
+  color: darkred;
+}
+
+.warning {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.random {
+  position: absolute;
 }
