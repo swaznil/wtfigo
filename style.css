@@ -135,3 +135,52 @@ body > p input {
 #bigtable font[size="7"] {
   letter-spacing: 4px;
 }
+
+.mousebit {
+  position: absolute;
+  pointer-events: none;
+  font-family: Courier New;
+  font-weight: bold;
+  z-index: 30;
+}
+
+#noise {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    white 3px,
+    transparent 4px
+  );
+}
+
+#popup {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.random button {
+  background: red;
+  color: yellow;
+}
+
+body.glitch {
+  background: #200000 !important;
+}
+
+body.glitch #bigtable {
+  border-color: lime;
+}
+
+body.glitch #shout {
+  color: yellow;
+  transform: rotate(16deg);
+}
