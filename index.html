@@ -10,35 +10,50 @@
 
 <body bgcolor="#050605" text="#eeeeee" link="lime" vlink="red">
 
-<div style="position:absolute;top:115px;left:3%;width:290px;background:#6a0009;color:yellow;transform:rotate(11deg);border:4px dashed magenta;z-index:9">
+<div id="noise"></div>
+<div class="webbit">✳</div>
+<div class="webbit webbit2">✳</div>
+<div class="redmess redmess2"></div>
+<div class="redmess"></div>
+
+<div id="readthismaybe">
   <marquee direction="right" scrollamount="9">
     if the red bit covers the menu zoom out twice. DO NOT email me about it again
   </marquee>
 </div>
 
+<div id="dog_or_skull">
+  ☠<br>
+  <font size="1">this skull used to be a dog</font>
+</div>
+
+<div id="dontpoke" onclick="popup('stop touching that')">
+  • &nbsp; •<br>
+  <span style="font-size:15px">it was facing left yesterday</span>
+</div>
+
+<div id="thatgif">
+  <img src="award-best-website-1997.gif" width="180" height="80" alt="award thing from old site"><br>
+  cant remember who sent this
+</div>
+
 <font size="1">
-WELCOME &nbsp;&nbsp; USER: ???????
-&nbsp; LAST UPDATE 14/98/2003
-&nbsp; DEATHS TODAY: 2
-&nbsp; <a href="#end">click here to skip the website</a>
+  WELCOME &nbsp;&nbsp; USER: <b>???????</b>
+  &nbsp; LAST UPDATE 14/98/2003
+  &nbsp; DEATHS TODAY: <span id="death">2</span>
+  &nbsp; <a href="#end">click here to skip the website</a>
 </font>
 
 <center>
-  <font face="Impact" color="red" size="7">
-    W E B &nbsp; S I T E
+  <font class="spookletters" face="Impact" color="red" size="7">
+    W&nbsp;E&nbsp;B&nbsp;&nbsp;&nbsp;S&nbsp;I&nbsp;T&nbsp;E
   </font>
-
-  <span style="font-size:30px;color:red;transform:rotate(-15deg);display:inline-block;cursor:pointer"
-  onclick="popup('NO ESCAPE')">escape!!</span>
-
-  <br>
+  <span id="escape_word">escape!!</span><br>
   <font size="1">my page. other one got deleted</font>
 </center>
 
-<br>
-
 <marquee scrollamount="17" behavior="alternate"
-style="font-size:35px;color:yellow;background:black;width:89%">
+style="font-size:35px;color:yellow;background:#050505;width:89%">
   HELLO WELCOME TO THE SITE !!!!!!
   <font color="red">DO NOT</font>
   CLICK ANYTHING!!!!! $$$$$$ ERROR
@@ -53,7 +68,7 @@ style="font-size:35px;color:yellow;background:black;width:89%">
 &nbsp;&nbsp;
 <button onclick="oops()">HOME</button>
 &nbsp;
-<a href="#" onclick="popup('UNDER CONSTRUCTION SINCE 2003')">ABOUT ME!!!</a>
+<a href="javascript:void(0)" onclick="popup('UNDER CONSTRUCTION SINCE 2003')">ABOUT ME!!!</a>
 &nbsp;
 <a href="#where">FAQ</a>
 &nbsp;
@@ -61,104 +76,57 @@ style="font-size:35px;color:yellow;background:black;width:89%">
 
 <br><br>
 
-<table id="bigtable" border="5" cellpadding="0" cellspacing="13"
-bgcolor="#171312" width="100%">
-
+<table id="bigtable" border="5" cellpadding="0" cellspacing="13" bgcolor="#171312" width="100%">
 <tr>
   <td width="6%" valign="top" bgcolor="black">
-
     <font color="yellow" size="1">MENU MENU MENU</font>
     <hr>
-
     <a href="#where">WHERE</a><br><br>
     <a href="#form">REGISTER</a><br>
     <a href="#garbage">MORE</a><br><br>
-
     <button onclick="more_crap()">ADD</button><br><br>
-
     <a href="javascript:alert('WRONG')">NO</a><br><br>
-
     <font size="7" color="red">X</font>
-
   </td>
 
   <td width="53%" valign="top">
-
-    <font size="7" color="#ff2200" face="Times New Roman">
-      <b>HEY</b>
-    </font>
-
+    <font size="7" color="#ff2200" face="Times New Roman"><b>HEY</b></font>
     <font size="2">you there</font><br>
-    <font color="white" size="3">
-      i made this at 2am dont start
-    </font>
+    <font color="white" size="3">i made this at 2am dont start</font>
 
     <p>
-      <font size="7" face="Courier New" color="#00ff00">
-        CLICK BELOW
-      </font>
+      <font size="7" face="Courier New" color="#00ff00">CLICK BELOW</font>
     </p>
 
-    <button onclick="nah(this)" onmouseover="nah(this)">
-      CLICK HERE FOR REAL
-    </button>
-
+    <button onclick="nah(this)" onmouseover="nah(this)">CLICK HERE FOR REAL</button>
     <button onclick="btnbtn(this)">button</button>
+    <button disabled>this one is broken</button><br><br>
 
-    <button disabled>this one is broken</button>
+    <span style="font-size:50px;color:red">100% FREE</span><br>
+    <span style="font-size:12px;color:#444">except money</span><br>
 
-    <br><br>
-
-    <span style="font-size:50px;color:red">
-      100% FREE
-    </span>
-    <br>
-
-    <span style="font-size:12px;color:#444">
-      except money
-    </span>
-    <br>
-
-    <img src="skull3.gif" alt="COOL SKULL IMAGE PLEASE WAIT"
-    width="500" height="49">
-
-    <br>
+    <img src="skull3.gif" alt="COOL SKULL IMAGE PLEASE WAIT" width="500" height="49"><br>
 
     <font color="yellow">You are visitor number</font>
-
-    <font size="6" color="red" id="counter">
-      00000013
-    </font>
-
+    <font size="6" color="red" id="counter">00000013</font>
   </td>
 
-  <td width="12%" valign="top" bgcolor="#031500">
-
+  <td valign="top" width="12%" bgcolor="#031500">
     <font size="6" color="lime">IMPORTANT</font><br>
 
     <marquee direction="up" scrollamount="8" height="120" bgcolor="red">
       <font color="white">
-        SCROLL UP TO WIN A FREE COMPUTER
-        FREE FREE FREE
-        UNINSTALL YOUR BROWSER FIRST
+        SCROLL UP TO WIN A FREE COMPUTER FREE FREE FREE UNINSTALL YOUR BROWSER FIRST
       </font>
-    </marquee>
+    </marquee><br>
 
-    <br>
-
-    <button onclick="document.body.style.background='#200000'">
-      NO VIRUS
-    </button>
-
-    <br><br>
-
+    <button onclick="document.body.style.background='#200000'">NO VIRUS</button><br>
     <small>TOP 14 WEBSITES</small>
     <ol>
       <li>this</li>
       <li>this</li>
       <li>this</li>
     </ol>
-
   </td>
 </tr>
 </table>
@@ -169,104 +137,249 @@ bgcolor="#171312" width="100%">
   <font size="2">probably</font>
 </div>
 
-<div style="position:absolute;left:67%;top:230px;font-size:95px;color:#8e8270;transform:rotate(-21deg);z-index:7;pointer-events:none">
-  ☠<br>
-  <font size="1">this skull used to be a dog</font>
-</div>
-
 <p>
+  <blink>**NEW**</blink>
   <font color="orange" size="5">DOWNLOAD MORE RAM</font>
   <input type="button" value="DOWNLOAD" onclick="download()">
   <input type="text" value="why" size="5">
 </p>
 
 <div id="thing">
-  <button onclick="this.parentNode.style.left=Math.random()*75+'%'">
+  <button onclick="document.getElementById('thing').style.left=Math.random()*75+'%';document.getElementById('thing').style.top=(280+Math.random()*900)+'px'">
     NOT THIS BUTTON
   </button>
 </div>
 
-<div style="position:fixed;right:39px;top:76%;color:#8b1313;font:45px Georgia;letter-spacing:6px;z-index:12;transform:rotate(8deg);cursor:help"
-onclick="popup('stop touching that')">
-  • &nbsp; •<br>
-  <span style="font-size:15px">it was facing left yesterday</span>
+<font size="5" color="red">PLEASE FILL THIS IN OR ELSE</font>
+
+<form id="form" onsubmit="return wrong_pw(event)">
+  <table bgcolor="#280000" border="3" bordercolor="lime" width="49%">
+    <tr>
+      <td>first name</td>
+      <td><input placeholder="last name"></td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td><input id="pw2" type="text" value="password123" autocomplete="off"></td>
+    </tr>
+    <tr>
+      <td>are you human</td>
+      <td>
+        <select id="human">
+          <option>maybe</option>
+          <option>NO</option>
+          <option>i am a chair</option>
+          <option>yes but legally no</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>date of birth</td>
+      <td><input type="date"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="checkbox" checked> I DISAGREE WITH EVERYTHING
+        <button>REGISTER !!!</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<div id="side">
+  <center>
+    <font size="7" color="red">BREAKING NEWS</font>
+    <hr size="11" color="lime">
+
+    <span id="headline" style="font:24px Comic Sans MS;color:yellow">
+      roof shoe update: still there
+    </span>
+
+    <p>
+      <button onclick="news()">next news</button>
+      <button onclick="this.innerText='NO'">subscribe</button>
+    </p>
+
+    <img src="image-not-found-but-it-is-important.png" width="341" height="230" alt="SHOE (cant find photo)">
+  </center>
 </div>
 
-<br><br><br>
+<br><br><br><br><br><br>
 
-<marquee direction="right" scrollamount="12"
-style="color:lime;background:#260008;font-size:24px;width:95%">
-  IMPORTANT NOTICE: WEBSITE IS WORKING PERFECTLY. IF IT IS BROKEN THAT IS YOUR PROBLEM.
+<marquee id="urgent" direction="right" scrollamount="5">
+  FOUND KEY UNDER WATER TANK. NOT OUR KEY. if yours describe it WITHOUT coming here
 </marquee>
 
-<br><br>
+<div id="pipebox">
+  <font color="lime" size="6">is it doing it again</font><br>
+  <button onclick="pipe_is_doing_it()">listen</button><br>
+  <span id="helpanswer">pipe noise started at 03:37</span><br>
+  <img src="pipe2.bmp" width="110" height="37" alt="photo of the pipe (wrong one)">
+</div>
 
-<font color="red" size="5">STOP PRESSING BUTTONS</font>
-<button onclick="more_crap()">WHY</button>
-<button onclick="popup('THERE IS NO HELP')">HELP</button>
+<div id="rent">
+  <font size="7" color="red">PLEASE BUY<br>THIS ROCK</font><br>
+  <button onclick="popup('no postage. pick it up. dont ring the bell after 8')">Rs 4</button>
+  <p style="font-size:8px;color:#777">
+    it keeps ending up by the stairs
+  </p>
+</div>
 
-<br><br>
+<center>
+  <font color="#222" size="6">you were never supposed to scroll here</font>
+</center>
 
-<p style="font-size:12px;color:gray">
-  if the page looks strange please do not contact me
-  <br>
-  i already know
-</p>
+<hr width="99%" size="1" color="#353535">
 
-<br><br>
-
-<div id="where" style="margin-left:23%;background:#131300;width:290px;padding:6px">
-  <font color="yellow" size="5">FAQ !!!!!</font><br>
+<div id="where" style="background:#131300;margin-left:23%;width:330px;padding:2px">
+  <font face="Courier" color="yellow" size="6">FAQ !!!!!</font><br>
   <font size="1">
     Q: WHY?????<br>
     A: NO COMMENT<br><br>
     Q: IS THE WEBSITE BROKEN??????<br>
-    A: IT IS WORKING ON MY COMPUTER
-  </font>
-  <br>
+    A: IT IS WORKING ON MY COMPUTER<br><br>
+    Q: CAN I LEAVE<br>
+    A: THIS QUESTION HAS BEEN DELETED
+  </font><br>
   <button onclick="popup('YOU HAVE WON NOTHING')">COMPLAIN HERE</button>
 </div>
 
-<br><br><br>
+<br>
 
-<font id="garbage" size="1">
+<center>
+  <font size="7" face="Arial Black" color="#0f0">UNDER CONSTRUCTION</font><br>
+  <img src="construction-animated.gif" width="900" height="18" alt="construction construction construction">
+</center>
+
+<div id="upstairs2">
+  <font class="spookletters" face="Comic Sans MS" size="7" color="#b00000">
+    UPSTAIRS CAMERA
+  </font><br>
+  <font size="1" color="gray">we dont have an upstairs</font><br>
+  <button onclick="upstairs2()">show it</button>
+
+  <div id="photo_deleted" style="display:none">
+    <span style="font-size:95px;letter-spacing:36px;color:#ccc">◉ ◉</span><br>
+    <font color="yellow" size="6">02:14:08</font><br>
+    same frame for 3 days now<br>
+    <button onclick="popup('i deleted it already. thats the deleted version')">
+      delete picture
+    </button>
+  </div>
+</div>
+
+<table id="book2" border="11" cellspacing="19" cellpadding="1" bgcolor="#141000" width="71%">
+<tr>
+  <td>
+    <font color="magenta" face="Comic Sans MS" size="6">write here</font><br>
+    <font size="1">dont put your phone number idiot</font>
+
+    <p id="messages">
+      suj: why does this open sideways<br>
+      me: it doesnt<br>
+      6/7: there is a shoe on your roof
+    </p>
+
+    <input id="writeit" maxlength="120" placeholder="something" size="38">
+    <button onclick="putit()">put</button>
+  </td>
+
+  <td width="19%" bgcolor="#001611">
+    <marquee direction="down" height="220" scrollamount="6">
+      HELP<br>HELP<br>HELP<br>HAVE A NICE DAY<br>HELP
+    </marquee>
+    <span style="font-size:55px">🐇</span>
+  </td>
+</tr>
+</table>
+
+<div id="thermometer_no_battery">
+  <font size="6" face="Courier New">ROOM 4</font>
+  <hr color="red" size="9">
+  <span id="r4">13° inside / 31° outside</span><br>
+  <button onclick="room4again()">check again</button>
+  <div style="font-size:110px;color:#545454">☁</div>
+  <font size="1">thermometer is probably broken</font>
+</div>
+
+<div id="paint_again">
+  wall stain: <span id="howbig">3</span>%<br>
+  <meter id="longthing" min="0" max="100" value="3"></meter><br>
+  <button onclick="rag()">scrub it</button><br>
+  <small id="cloth">painted over it on tuesday</small>
+</div>
+
+<p id="shoe_warning" style="font:60px Impact;color:#630505;transform:rotate(4deg);margin-left:7%;line-height:.6">
+  DONT SCROLL<br>
+  PAST THE SHOE
+</p>
+
+<div id="lastbits">
+  <div id="curse">
+    <u>stuff i need back</u><br>
+    <span id="missingstuff">blue extension cable. not the short one.</span><br>
+    <button onclick="where_is_my_cable()">next</button>
+  </div>
+
+  <marquee direction="right" style="width:39%;margin-left:54%;font-size:60px;color:#95000b" scrollamount="3">
+    NOTHING IS WRONG NOTHING IS WRONG
+  </marquee>
+
+  <div id="notes2" style="width:257px;margin-left:31px;margin-top:53px;background:#d3cba9;color:#211b16;font:13px Arial;border-left:2px solid red;padding:3px">
+    17 july<br>
+    fixed the counter i think<br>
+    <s>move the red thing</s><br>
+    dont move it other stuff disappears<br><br>
+    19 july<br>
+    uploaded rabbit<br><br>
+    22 july<br>
+    if it says 03:37 refresh. mine says it too<br>
+    <a href="#" onclick="old_foto(event)">old photos</a> (lost)
+  </div>
+</div>
+
+<span style="position:absolute;top:1450px;left:19%;font-size:55px;transform:rotate(27deg)">
+  🐇
+</span>
+
+<p id="garbage" style="font-size:11px">
+  &nbsp;&nbsp;&nbsp;&nbsp;this website is best viewed on a monitor.<br>
+  use on 147% zoom for best experince<br>
   © 1997 - 2004 - 2098 all rights reversed.
-  &nbsp; <a href="#">privacy policy</a>
-  <br>
-  this website is best viewed on a monitor.
-</font>
+  &nbsp;<a href="#">privacy policy</a>
+  <button onclick="move_some_stuff()">SORT WEBSITE</button>
+</p>
 
-<br><br>
-
-<div style="width:100%;overflow:hidden;white-space:nowrap;border:1px solid red;font-size:40px;color:#800000">
+<div style="width:100%;overflow:hidden;white-space:nowrap;border:1px solid red;font-size:60px;color:#800000">
   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </div>
 
-<br><br>
+<div style="height:24px"></div>
 
-<a id="end" href="#" onclick="oops(event)" style="font-size:9px;color:gray">
+<a id="end" href="#" onclick="bye(event)" style="font-size:8px;color:gray">
   exit (actually exit)
 </a>
 
-<button style="position:fixed;right:11px;bottom:15px;z-index:80;transform:rotate(-4deg)"
-onclick="oops()">
-  CLOSE WEBSITE [X]
-</button>
+<button id="dont" onclick="oops()">CLOSE WEBSITE [X]</button>
 
 <div id="popup">
   <b style="background:blue;color:white;display:block;font:12px Arial">
     ! ! INTERNET EXPLORER !!
-    <button style="float:right" onclick="document.getElementById('popup').style.display='none'">X</button>
+    <button style="float:right" onclick="popup('YOU CANNOT CLOSE ME')">X</button>
   </b>
 
   <h1 id="poptxt">ERROR</h1>
-
   <img src="expired.gif" width="90" height="40" alt="RED X">
 
   <p>
-    <button onclick="document.getElementById('popup').style.display='none'">OK</button>
+    <button onclick="this.parentNode.parentNode.style.display='none'">OK</button>
     <button onclick="popup('WRONG ANSWER')">CANCEL</button>
   </p>
+</div>
+
+<div id="panic">
+  ERROR<br>
+  <font size="3">good bye</font>
 </div>
 
 <script src="script.js"></script>
