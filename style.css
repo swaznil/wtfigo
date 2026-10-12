@@ -1,3 +1,5 @@
+html { overflow-x: hidden; }
+
 body {
   background: #070707;
   color: #f3f3f0;
@@ -23,35 +25,28 @@ button:nth-child(3n) {
   font-family: Impact;
 }
 
+table { border-collapse: separate; }
 input { max-width: 90%; }
-img { max-width: 100%; }
-marquee { font-family: Impact; }
-hr { margin-top: 15px; margin-bottom: 8px; }
+td input, td select { max-width: 100%; }
+img, svg { max-width: 100%; }
+td { min-width: 0; overflow-wrap: anywhere; }
 
-#bigtable {
-  background: #171717;
-  border-spacing: 13px;
-  table-layout: fixed;
-  width: 100%;
+table, img, input, select, button, #popup,
+#upstairs2, #keyprint, #notes2, #curse, #one_or_L { box-sizing: border-box; }
+
+#noise {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: .045;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, white 3px, transparent 4px);
 }
 
-#bigtable td {
-  padding: 4px;
-  overflow-wrap: anywhere;
-}
-
-#bigtable td:first-child {
-  border: 4px dashed red;
-  width: 10%;
-}
-
-#bigtable td:nth-child(2) { width: 62%; }
-#bigtable td:last-child {
-  border: 6px ridge green;
-  width: 28%;
-}
-
-#bigtable font[size="7"] { letter-spacing: 4px; }
+#bigtable { width: 100%; table-layout: fixed; }
+#bigtable > tbody > tr > td:nth-child(1) { width: 10%; }
+#bigtable > tbody > tr > td:nth-child(2) { width: 62%; }
+#bigtable > tbody > tr > td:nth-child(3) { width: 28%; }
 
 #shout {
   position: absolute;
@@ -61,22 +56,9 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   font: 47px Comic Sans MS;
   color: red;
   z-index: 4;
-  text-shadow: 4px 5px black;
 }
 
-#thing {
-  position: absolute;
-  left: 44%;
-  top: 365px;
-  z-index: 8;
-  transform: rotate(7deg);
-}
-
-#thing button {
-  font-size: 17px;
-  background: yellow;
-  color: red;
-}
+#thing { position: absolute; left: 44%; top: 365px; z-index: 8; }
 
 #popup {
   display: none;
@@ -98,12 +80,35 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   box-sizing: border-box;
 }
 
-#popup h1 { font-size: 28px; color: darkred; }
+#panic {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: maroon;
+  color: white;
+  font: bold 70px Impact;
+  text-align: center;
+  padding-top: 18vh;
+}
 
-.warning {
-  color: red;
-  font-size: 25px;
-  font-weight: bold;
+#dont {
+  position: fixed;
+  right: 11px;
+  bottom: 15px;
+  z-index: 80;
+  transform: rotate(-4deg);
+}
+
+#suj_dont {
+  position: fixed;
+  left: 0;
+  top: 40%;
+  font: 9px Courier New;
+  color: #795353;
+  writing-mode: vertical-rl;
+  z-index: 13;
 }
 
 .random {
@@ -115,24 +120,34 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   max-width: 70vw;
 }
 
-.random button { background: red; color: yellow; }
-
-.mousebit {
-  position: absolute;
-  pointer-events: none;
-  font: bold 18px Courier New;
-  z-index: 30;
-}
 .spookletters {
-  font-family: Chiller, Papyrus, Impact;
-  text-shadow: 3px 7px #390000;
+  font-family: Chiller, 'Copperplate Gothic Light', Papyrus, fantasy;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 1px 4px #650007, 3px 8px #310004;
 }
 
 #escape_word {
   display: inline-block;
-  font: 30px Chiller, Papyrus;
-  color: red;
+  position: relative;
+  margin-left: 9px;
+  color: #d82217;
+  font: bold 30px Chiller, Papyrus, fantasy;
+  letter-spacing: -1px;
+  text-shadow: 1px 3px #760708, -1px 1px #3a0704;
   transform: rotate(-11deg);
+}
+
+#escape_word::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  bottom: -7px;
+  width: 2px;
+  height: 10px;
+  border-radius: 0 0 70% 40%;
+  background: #a61510;
+  box-shadow: 29px 4px #a61510, 61px -2px #810c09;
 }
 
 #readthismaybe {
@@ -217,15 +232,24 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   z-index: 9;
 }
 
+.redmess::after {
+  content: '';
+  position: absolute;
+  left: 84px;
+  top: 49px;
+  width: 5px;
+  height: 68px;
+  background: #79080b;
+  border-radius: 0 0 60% 40%;
+  box-shadow: 24px -10px #68060a, -12px -28px #79080b;
+  transform: rotate(-16deg);
+}
+
 .redmess2 {
   top: 1110px;
   left: 18%;
   transform: rotate(-37deg);
 }
-
-#form { margin-top: 10px; }
-#form table { table-layout: fixed; }
-
 #side {
   position: absolute;
   top: 545px;
@@ -270,6 +294,8 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   text-align: right;
 }
 
+#where { width: min(330px, 72%) !important; }
+
 #upstairs2 {
   margin-left: 41%;
   margin-top: 45px;
@@ -282,6 +308,18 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   transform: rotate(-6deg);
 }
 
+#keyprint {
+  width: 235px;
+  max-width: calc(100% - 24px);
+  margin: 12px 0 6px 19px;
+  padding: 5px;
+  background: #25221b;
+  color: #c5bca4;
+  border: 1px solid #655b44;
+  font: 12px 'Courier New';
+  transform: rotate(3deg);
+}
+
 #book2 {
   margin-top: 28px;
   margin-left: 4%;
@@ -289,6 +327,8 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   font-family: Comic Sans MS;
   color: #bea353;
 }
+
+#form > table { table-layout: fixed; }
 
 #messages {
   font-size: 11px;
@@ -350,11 +390,17 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   padding: 2px;
 }
 
-#lastbits > marquee {
+#one_or_L {
   position: absolute;
-  top: 173px;
-  left: 44%;
-  margin: 0 !important;
+  top: 13px;
+  left: 8%;
+  margin: 0;
+  width: 220px;
+  background: #090009;
+  color: lime;
+  font: 15px Courier New;
+  border: 5px inset #545454;
+  transform: rotate(-9deg);
 }
 
 #notes2 {
@@ -364,36 +410,54 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   margin: 0 !important;
 }
 
-#dont {
+#lastbits > marquee { position: absolute; top: 173px; left: 44%; margin: 0 !important; }
+#photo_form { margin: 0; }
+
+#boo2 {
   position: fixed;
-  right: 11px;
-  bottom: 15px;
-  z-index: 80;
-  transform: rotate(-4deg);
+  text-align: center;
+  filter: drop-shadow(7px 9px 2px #000);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 150;
 }
 
-#panic {
-  display: none;
+#boo2 small { color: #bfb6a2; font: 11px 'Times New Roman'; }
+
+.sheet2 {
+  width: 133px;
+  height: 162px;
+  padding-top: 43px;
+  background: #c4c0ad;
+  color: #180908;
+  clip-path: polygon(0 100%, 0 37%, 5% 21%, 19% 6%, 37% 0, 61% 1%, 83% 9%, 95% 26%, 100% 100%, 82% 86%, 66% 98%, 51% 84%, 35% 99%, 18% 84%);
+}
+
+.sheet2 span { font: bold 27px Georgia; letter-spacing: 1px; }
+.sheet2 b { display: block; font: bold 45px Georgia; line-height: 1.2; color: #390b0d; }
+
+#boo2[hidden], #keyprint[hidden], #cupboard[hidden] { display: none; }
+
+#cupboard {
   position: fixed;
   inset: 0;
-  z-index: 100;
-  pointer-events: none;
-  background: maroon;
-  color: white;
-  font: bold 80px Impact;
+  padding: 20vh 18px 20px;
+  background: #060605;
+  color: #b6afa0;
   text-align: center;
-  padding-top: 18vh;
+  font: 15px 'Times New Roman';
+  z-index: 200;
 }
 
-#suj_dont {
-  position: fixed;
-  left: 0;
-  top: 40%;
-  font: 9px Courier New;
-  color: #696969;
-  writing-mode: vertical-rl;
-  z-index: 13;
-}
+#cupboard h1 { font: 33px Chiller, Papyrus, fantasy; color: #927e6c; }
+
+.in_the_cupboard > :not(#cupboard):not(#boo2):not(script) { display: none !important; }
+.in_the_cupboard #boo2 { z-index: 210; }
+
+.in_the_puzzle .random { z-index: 20 !important; }
+.in_the_puzzle #form, .in_the_puzzle #end { position: relative; z-index: 55; }
+.in_the_puzzle #upstairs2, .in_the_puzzle #notes2,
+.in_the_puzzle #one_or_L, .in_the_puzzle #pipebox { z-index: 55; }
 
 #wrong_door {
   position: fixed;
@@ -405,12 +469,27 @@ hr { margin-top: 15px; margin-bottom: 8px; }
   text-align: center;
 }
 
-#wrong_door h1 {
-  font: 45px Papyrus;
-  color: red;
+#wrong_door h1, #again_wrong {
+  font-family: Chiller, Papyrus, fantasy;
+  color: #b02920;
+  text-shadow: 2px 5px #420905;
 }
 
-#wrong_door a {
-  font: 32px Papyrus, serif;
-  color: #b22121;
+#wrong_door h1 { font-size: clamp(30px, 5vw, 62px); font-weight: normal; margin: 0 0 27px; transform: rotate(-2deg); }
+#wrong_door p { font-size: 15px; }
+#wrong_door small { font-size: 11px; color: #706359; }
+#wrong_door .door_hint { color: #524943; }
+
+#again_wrong { display: inline-block; font-size: 39px; margin: 19px 0 10px; transform: rotate(4deg); }
+#again_wrong:focus-visible { outline: 1px dashed #9e6251; outline-offset: 8px; }
+
+.door_eyes {
+  margin-bottom: 38px;
+  color: #9d1714;
+  font: 26px Georgia;
+  letter-spacing: 17px;
+  text-shadow: 0 0 13px #610b09;
+  transform: rotate(-7deg);
 }
+
+.door_eyes span { display: block; margin-top: -10px; color: #4c211b; font-size: 42px; letter-spacing: 0; }
