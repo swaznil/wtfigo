@@ -5,7 +5,7 @@ var errors = 0;
 var wetbit = 3;
 var pop = document.getElementById('popup');
 var gone = false;
-var attic_step = 0; // 0: photo locked, 1: key found, 2: door unlocked
+var attic_step = 0;
 var photo_misses = 0;
 var pw_misses = 0;
 var broom_timeout;
@@ -46,22 +46,14 @@ function nah(button) {
 
 function btnbtn(button) {
   clicks++;
-
-  button.innerText = [
-    'WHY', 'STOP', 'HELLo', 'AAHAHAH',
-    'CLICK AGAIN', 'NOOO', 'THIS no BUTTON', 'BUTTON yes Button'
-  ][clicks % 8];
-
-  document.getElementById('counter').innerText =
-    ('00000' + (13 + clicks)).slice(-8);
-
+  button.innerText = ['WHY', 'STOP', 'HELLo', 'AAHAHAH', 'CLICK AGAIN', 'NOOO', 'THIS no BUTTON', 'BUTTON yes Button'][clicks % 8];
+  document.getElementById('counter').innerText = ('00000000' + (13 + clicks)).slice(-8);
   if (clicks % 3 === 0) popup('BUTTON HAS STOPPED RESPONDING');
   if (clicks % 5 === 0) more_crap();
 }
 
 function download() {
   popup('DOWNLOAD COMPLETE. NOTHING DOWNLOADED');
-
   var a = document.createElement('a');
   a.href = 'data:text/plain,You%20have%20downloaded%20nothing';
   a.download = 'nothing.txt';
@@ -146,27 +138,18 @@ function wrong_pw(e) {
 function old_foto(e) {
   e.preventDefault();
   document.body.classList.add('in_the_puzzle');
-
-  if (attic_step === 0) {
-    popup(photo_misses >= 2
-      ? 'camera says 02:14:08. put its six digits in VERIFY.'
-      : 'photo locked. six digits. camera knows. try VERIFY.');
-  } else if (attic_step === 1) {
-    popup('password on the back of the key. use REGISTER. leave out the dots.');
-  } else {
-    popup('door unlocked. little exit. bottom of the page.');
-  }
+  if (attic_step === 0) popup('photo locked. six digits. camera knows. try VERIFY.');
+  if (attic_step === 1) popup('password on the back of the key. use REGISTER.');
+  if (attic_step === 2) popup('door unlocked. little exit. bottom of the page.');
 }
 
 function check_the_photo(e) {
   e.preventDefault();
   document.body.classList.add('in_the_puzzle');
-
   if (attic_step > 0) {
     show_the_key();
     return false;
   }
-
   var code = document.getElementById('photo_pw').value.replace(/[\s:]/g, '');
   if (code !== '021408') {
     photo_misses++;
@@ -175,7 +158,6 @@ function check_the_photo(e) {
       : 'wrong. thats not when the camera stopped.');
     return false;
   }
-
   attic_step = 1;
   show_the_key();
   return false;
@@ -216,7 +198,6 @@ function pipe_is_doing_it() {
     document.getElementById('helpanswer').innerText = 'zero. three. three. seven.';
     return;
   }
-
   document.getElementById('helpanswer').innerText = choose([
     '>_<',
     'wait',
@@ -225,38 +206,25 @@ function pipe_is_doing_it() {
     'Unplug the fudging fridge',
     '03:37 again'
   ]);
-
   wetbit += 7;
   patchsize();
 }
 
 function upstairs2() {
-  var g = document.getElementById('photo_deleted');
-  g.style.display = g.style.display === 'none' ? 'block' : 'none';
-  if (g.style.display === 'block') oh_no();
-
+  var photo = document.getElementById('photo_deleted');
+  photo.style.display = photo.style.display === 'none' ? 'block' : 'none';
+  if (photo.style.display === 'block') oh_no();
   wetbit += 13;
   patchsize();
-
-  document.getElementById('upstairs2').style.borderWidth =
-    (1 + Math.random() * 14) + 'px';
 }
 
 function putit() {
-  var i = document.getElementById('writeit');
-
-  if (!i.value.trim()) {
-    popup('you didnt write anything');
-    return;
-  }
-
+  var input = document.getElementById('writeit');
+  if (!input.value.trim()) return popup('you didnt write anything');
   var p = document.createElement('p');
-  p.innerText = '??: ' + i.value;
+  p.innerText = '??: ' + input.value;
   document.getElementById('messages').appendChild(p);
-
-  i.value = '';
-  popup('its there now');
-
+  input.value = '';
   wetbit += 9;
   patchsize();
 }
@@ -270,15 +238,11 @@ function room4again() {
     '13° / wet patch bigger',
     '13°'
   ]);
-
-  document.getElementById('thermometer_no_battery').style.transform =
-    'rotate(' + (Math.random() * 32 - 16) + 'deg)';
 }
 
 function rag() {
   wetbit -= 17;
   patchsize();
-
   document.getElementById('cloth').innerText = choose([
     'made it bigger ;)',
     'cloth gone red',
@@ -286,7 +250,6 @@ function rag() {
     'its on the other side dammit',
     'leaveeee it'
   ]);
-
   more_crap();
 }
 
@@ -309,25 +272,17 @@ function where_is_my_cable() {
 }
 
 function move_some_stuff() {
-  var all = Array.from(document.body.children).filter(function(x) {
-    return x.tagName === 'P' ||
-           x.tagName === 'HR' ||
-           x.tagName === 'CENTER';
+  var all = Array.from(document.body.children).filter(function(el) {
+    return ['P', 'HR', 'CENTER'].includes(el.tagName);
   });
-
-  all.sort(function() { return Math.random() - .5; });
-
-  all.forEach(function(x) {
-    document.body.insertBefore(x, document.getElementById('end'));
-  });
-
+  all.sort(function() { return Math.random() - 0.5; });
+  all.forEach(function(el) { document.body.insertBefore(el, document.getElementById('end')); });
   popup('WEBSITE SUCCESSFULLY SORTED');
 }
 
 function bye(e) {
   e.preventDefault();
   if (gone) return;
-
   gone = true;
   clearInterval(update_clock);
   clearInterval(wall_clock);
@@ -383,99 +338,24 @@ function mouse(e) {
 }
 
 function key(e) {
-  if (gone) {
-    if (e.key === 'Escape' && attic_step === 2) finish_the_broom();
-    return;
-  }
-
-  if (e.key === 'Escape') {
-    document.getElementById('boo2').hidden = true;
-    pop.style.display = 'none';
-    document.getElementById('panic').style.display = 'none';
-  }
-
-  if (e.key === 'Enter' &&
-      !e.target.closest('input,select,form,button,a')) {
-    more_crap();
-  }
+  if (e.key !== 'Escape') return;
+  if (gone && attic_step === 2) return finish_the_broom();
+  pop.style.display = 'none';
+  document.getElementById('panic').style.display = 'none';
+  document.getElementById('boo2').hidden = true;
 }
-
-function oh_no(on_the_way_out) {
-  if ((gone && !on_the_way_out) ||
-      document.hidden ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  if (!on_the_way_out && Date.now() - lastboo < 25000) return;
-  lastboo = Date.now();
-
-  var b = document.getElementById('boo2');
-  b.style.left = (27 + Math.random() * 40) + 'vw';
-  b.style.top = (18 + Math.random() * 25) + 'vh';
-  b.hidden = false;
-
-  clearTimeout(boo_timeout);
-  boo_timeout = setTimeout(function() {
-    b.hidden = true;
-  }, 850);
-}
-
-var update_clock = setInterval(function() {
-  if (gone) return;
-
-  if (Math.random() < 0.4) {
-    document.getElementById('death').innerText =
-      Math.floor(Math.random() * 999);
-  }
-
-  if (Math.random() < 0.2) {
-    document.title = choose([
-      'WEBSITE',
-      'ERROR 0x00',
-      'DONT LEAVE',
-      'WELCOME !!!',
-      'the website is fine'
-    ]);
-  }
-}, 3000);
-
-var welcome_clock = setTimeout(function() {
-  if (!gone) popup('WELCOME. THERE IS A PROBLEM.');
-}, 14000);
-
-var wall = document.createElement('div');
-wall.id = 'suj_dont';
-wall.innerText = 'dont show this bit to suj';
-document.body.appendChild(wall);
 
 var totalClicks = 0;
-
 document.addEventListener('click', function() {
   if (gone) return;
-
   totalClicks++;
-
   if (totalClicks % 4 === 0) {
     wetbit++;
     patchsize();
   }
-
   if (totalClicks % 9 === 0) more_crap();
 });
 
-document.addEventListener('click', function(e) {
-  if (gone || e.target.closest('input,select,form,#popup')) return;
-  if (totalClicks % 17 === 0) oh_no();
-});
-
-var wall_clock = setInterval(function() {
-  if (gone) return;
-
-  if (Math.random() > 0.55) {
-    wall.innerText = choose([
-      'dont show this bit to aiciagkbkgb',
-      'i didnt put that photo there',
-      '03:37',
-      'leave the little window open'
-    ]);
-  }
-}, 5700);
+setTimeout(function() {
+  if (!gone) popup('WELCOME. THERE IS A PROBLEM.');
+}, 14000);
