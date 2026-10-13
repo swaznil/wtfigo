@@ -284,8 +284,6 @@ function bye(e) {
   e.preventDefault();
   if (gone) return;
   gone = true;
-  clearInterval(update_clock);
-  clearInterval(wall_clock);
   clearTimeout(welcome_clock);
   clearTimeout(boo_timeout);
 
@@ -356,6 +354,16 @@ document.addEventListener('click', function() {
   if (totalClicks % 9 === 0) more_crap();
 });
 
-setTimeout(function() {
+var welcome_clock = setTimeout(function() {
   if (!gone) popup('WELCOME. THERE IS A PROBLEM.');
 }, 14000);
+
+function oh_no(force) {
+  if (gone && !force) return;
+  var ghost = document.getElementById('boo2');
+  ghost.style.left = (30 + Math.random() * 40) + 'vw';
+  ghost.style.top = (15 + Math.random() * 30) + 'vh';
+  ghost.hidden = false;
+  clearTimeout(boo_timeout);
+  boo_timeout = setTimeout(function() { ghost.hidden = true; }, 850);
+}

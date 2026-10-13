@@ -342,3 +342,26 @@ button:nth-child(3n) { background: olive; }
 #wrong_door h1, #again_wrong { font-family: Chiller, Papyrus, fantasy; color: #b02920; }
 #wrong_door h1 { font-size: 50px; }
 #again_wrong { display: inline-block; font-size: 39px; margin-top: 20px; }
+
+.webbit {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  width: 160px;
+  opacity: .25;
+  pointer-events: none;
+}
+.webbit2 {
+  top: 680px;
+  left: 0;
+  right: auto;
+  width: 105px;
+  transform: rotate(45deg);
+}
+.lost-rabbit {
+  display: block;
+  width: 184px;
+  height: 39px;
+  margin: 0 0 10px 19%;
+  transform: rotate(27deg);
+}
